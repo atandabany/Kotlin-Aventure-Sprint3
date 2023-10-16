@@ -4,19 +4,33 @@ import model.jeu.Sort
 import model.jeu.TirageDes
 import model.item.*
 import model.personnage.Personnage
-import dao.QualiteDAO
+//import dao.QualiteDAO
 import generateur.GenerateurQualites
+import model.jeu.generateur.GenerateurBombe
+import model.jeu.generateur.GenerateurPotion
 
 //DEMO MISSION 1
 val generateurQualites = GenerateurQualites("assets/qualites.csv")
-
 val qualites = generateurQualites.generer()
+
+val generateurPotion = GenerateurPotion("asset/potion.csv")
+val potions = generateurPotion.generer()
+
+val generateurBombe = GenerateurBombe("assets/bombe.csv")
+val bombes = generateurBombe.generer()
+
+val generateurTypeArme = GenerateurTypeArme("assets/typeArme.csv")
+val typeArme = generateurTypeArme.generer()
+
+val generateurArme = GenerateurArme("assets/arme.csv")
+val arme = generateurArme.generer()
+
 
 //DEMO MISSION 2 :
 // TODO Retirer les commentaires des lignes 21 et 24
 // TODO : A la ligne 13 renomé la variable qualites en qualitesFromCSV
 //instanciation de la co à la BDD
-val coBDD = BDD()
+//val coBDD = BDD()
 //instanciation d'un objet QualiteDAO
 //val qualiteRepository = QualiteDAO(coBDD)
 //
