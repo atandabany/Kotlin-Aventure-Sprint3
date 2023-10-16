@@ -1,0 +1,38 @@
+@startuml
+!define ClassBackgroundColor #White
+!define MethodBackgroundColor ClassBackgroundColor
+!define ClassBorderColor #000000
+!define ClassFontColor #000000
+!define ClassFontSize 14
+!define MethodFontColor ClassFontColor
+!define MethodFontSize 12
+!define ArrowColor #707070
+
+skinparam class {
+    BackgroundColor ClassBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor ClassFontColor
+    FontSize ClassFontSize
+}
+
+skinparam method {
+    BackgroundColor MethodBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor MethodFontColor
+    FontSize MethodFontSize
+}
+
+start
+:Création de l'objet\nTirageDes 1d6;
+:Compteur =0;
+if (compteur< (attaque du caster/2)) then (true)
+    :Lancer les dés\n(Appel de la méthode lance());
+    :Calculer les dégâts;
+    :Réduction des points de vie de la cible;
+    : Affichage du message "Le projectile magique inflige x dégats";
+    : Incrémentation du compteur;
+    else(false)
+endif
+end
+
+@enduml

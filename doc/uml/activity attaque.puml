@@ -1,0 +1,54 @@
+@startuml
+
+!define ClassBackgroundColor #White
+!define MethodBackgroundColor ClassBackgroundColor
+!define ClassBorderColor #000000
+!define ClassFontColor #000000
+!define ClassFontSize 14
+!define MethodFontColor ClassFontColor
+!define MethodFontSize 12
+!define ArrowColor #707070
+
+skinparam class {
+    BackgroundColor ClassBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor ClassFontColor
+    FontSize ClassFontSize
+}
+
+skinparam method {
+    BackgroundColor MethodBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor MethodFontColor
+    FontSize MethodFontSize
+}
+
+title Attaquer
+
+start
+:Appeler méthode attaquer du parent (Personnage);
+:Initialisation des dégâts à 1;
+:Initialisation du bonus d'attaque (score d'attaque/2);
+:Calcul de la défense de la cible (utilisation de la méthode totaDefense());
+
+
+
+if (Arme secondaire équipée) then (oui)
+    :Calcul des dégâts de l'arme secondaire;
+    :Calcul des dégâts totaux
+    ( degat de l'arme + bonus d'attaque - défense totale de la cible);
+
+else (non)
+    :Calcul des dégâts totaux (bonus d'attaque - défense totale de la cible);
+endif
+   if (Dégâts totaux > 1) then (oui)
+
+    else (non)
+        :Initialisation des dégâts à 1;
+    endif
+:Appliquer les dégâts à l'adversaire;
+:Afficher le message des dégâts infligés;
+
+stop
+
+@enduml

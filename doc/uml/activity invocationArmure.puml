@@ -1,0 +1,33 @@
+skinparam class {
+    BackgroundColor ClassBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor ClassFontColor
+    FontSize ClassFontSize
+}
+
+skinparam method {
+    BackgroundColor MethodBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor MethodFontColor
+    FontSize MethodFontSize
+}
+
+start
+:Création de l'objet\nTirageDes 1d20;
+:Lancer les dés\n(Appel de la méthode lance());
+:Déclaration d'une variable qualité;
+if(resultat<5) then (true)
+    : qualité prend la valeur qualitéCommun;
+else if(resultat<10) then (true)
+    : qualité prend la valeur qualitéRare;
+else if(resultat<15) then (true)
+    : qualité prend la valeur qualitéEpic;
+else(false)
+    :qualité prend la valeur qualitéLegendaire;
+endif;
+:Création de l'armure magique de type Armure en cuir;
+:Ajout de l'armure dans l'inventaire de la cible;
+:Afficher le message "Une armure magique est ajoutée à l'inventaire";
+:La cible équipe l'armure;
+end
+@enduml

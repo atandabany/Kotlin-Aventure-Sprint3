@@ -1,0 +1,46 @@
+@startuml
+
+!define ClassBackgroundColor #White
+!define MethodBackgroundColor ClassBackgroundColor
+!define ClassBorderColor #000000
+!define ClassFontColor #000000
+!define ClassFontSize 14
+!define MethodFontColor ClassFontColor
+!define MethodFontSize 12
+!define ArrowColor #707070
+
+skinparam class {
+    BackgroundColor ClassBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor ClassFontColor
+    FontSize ClassFontSize
+}
+
+skinparam method {
+    BackgroundColor MethodBackgroundColor
+    BorderColor ClassBorderColor
+    FontColor MethodFontColor
+    FontSize MethodFontSize
+}
+
+title Méthode volerItem()
+
+start
+
+if (L'inventaire de la cible n'est pas vide) then (oui)
+    :Choisir un objet au hasard de l'inventaire de la cible;
+    if (Objet volé est l'arme équipée de la cible) then (oui)
+        :Retirer l'arme équipée de la cible;
+    else if (Objet volé est l'armure équipée de la cible) then (oui)
+        :Retirer l'armure équipée de la cible;
+    endif
+    :Ajouter l'objet volé à l'inventaire du voleur;
+    :Retirer l'objet volé de l'inventaire de la cible;
+    :Afficher un message indiquant l'objet volé;
+else (non)
+    :Afficher un message indiquant que l'inventaire de la cible est vide;
+endif
+
+stop
+
+@enduml

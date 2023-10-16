@@ -1,0 +1,34 @@
+@startuml
+
+
+start
+
+:Créer une instance de Qualite;
+if (Qualite.id == null) then (oui)
+  :Préparer une requête d'insertion;
+  :Définir les paramètres de la requête;
+else (non)
+  :Préparer une requête de mise à jour;
+  :Définir les paramètres de la requête;
+endif
+
+:Exécuter la requête;
+
+if (nbLigneMaj > 0) then (oui)
+  :Récupérer les clés générées;
+  if (generatedKeys.next()) then (oui)
+    :Récupérer l'ID généré;
+    :Mettre à jour l'ID de Qualite;
+    :Retourner Qualite;
+  else (non)
+    :Fermer la requête préparée;
+    :Retourner null;
+  endif
+else (non)
+endif
+:Fermer la requête préparée;
+:Retourner null;
+
+
+stop
+@enduml

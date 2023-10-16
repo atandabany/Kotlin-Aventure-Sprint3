@@ -1,0 +1,10 @@
+@startuml
+
+(*) --> "Création de l'objet TirageDes\n (nbDes = l'attaque du caster/3, maxDe=6)"
+"Création de l'objet TirageDes\n (nbDes = l'attaque du caster/3, maxDe=6)" --> "Lancer les dés\n(Appel de la méthode lance())"
+"Lancer les dés\n(Appel de la méthode lance())" --> "Calculer les dégâts (dégats - defense total)"
+"Calculer les dégâts (dégats - defense total)" --> "Réduction des points de vie de la cible"
+"Réduction des points de vie de la cible" --> "Affichage du message"
+"Affichage du message" --> (*)
+
+@enduml
