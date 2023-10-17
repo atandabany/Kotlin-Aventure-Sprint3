@@ -1,4 +1,4 @@
-import jdbc.BDD
+import generateur.GenerateurArme
 import model.jeu.Jeu
 import model.jeu.Sort
 import model.jeu.TirageDes
@@ -6,8 +6,11 @@ import model.item.*
 import model.personnage.Personnage
 //import dao.QualiteDAO
 import generateur.GenerateurQualites
+import generateur.GenerateurTypeArme
+import model.jeu.generateur.GenerateurArmure
 import model.jeu.generateur.GenerateurBombe
 import model.jeu.generateur.GenerateurPotion
+import model.jeu.generateur.GenerateurTypeArmure
 
 //DEMO MISSION 1
 val generateurQualites = GenerateurQualites("assets/qualites.csv")
@@ -25,6 +28,14 @@ val typeArme = generateurTypeArme.generer()
 val generateurArme = GenerateurArme("assets/arme.csv")
 val arme = generateurArme.generer()
 
+val generateurTypeArmure = GenerateurTypeArmure("assets/typeArmure.csv")
+val typeArmure = generateurTypeArmure.generer()
+
+val generateurArmure = GenerateurArmure("assets/armure.csv")
+val armure = generateurArmure.generer()
+
+val generateurMonstre = GenerateurMonstres("assets/monstres.csv")
+val monstres = generateurMonstre.generer()
 
 //DEMO MISSION 2 :
 // TODO Retirer les commentaires des lignes 21 et 24
