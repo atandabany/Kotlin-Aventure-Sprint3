@@ -3,7 +3,6 @@ import model.item.Arme
 import model.item.Qualite
 import qualites
 import typeArme
-import java.lang.reflect.Type
 import java.nio.file.Paths
 import java.nio.file.Files
 class GenerateurArme(val cheminFichier: String) {

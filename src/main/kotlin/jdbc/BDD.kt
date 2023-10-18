@@ -2,7 +2,7 @@ package jdbc
 
 
 import java.sql.*
-
+import com.mysql.cj.jdbc.Driver
 /**
  * Cette classe gère la connexion à une base de données JDBC et l'exécution de requêtes SQL préparées.
  *
@@ -13,8 +13,8 @@ import java.sql.*
 class BDD(
 
     var url: String = "jdbc:mysql://localhost:3306/db_kotlinAventure",
-    var user: String = "root",
-    var password: String = "",
+    var user: String = "admin",
+    var password: String = "sio",
 ) {
     var connectionBDD: Connection? = null
 

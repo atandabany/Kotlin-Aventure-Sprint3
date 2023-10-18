@@ -8,7 +8,7 @@ import model.personnage.Personnage
  * @property nom Le nom de l'objet.
  * @property description Une brève description de l'objet.
  */
-open abstract class Item(val nom: String, val description: String) {
+open abstract class Item(var id : Int? = null ,val nom: String, val description: String) {
 
     /**
      * Méthode abstraite permettant d'utiliser l'objet sur une cible (personnage).

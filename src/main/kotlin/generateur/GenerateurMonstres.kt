@@ -2,6 +2,7 @@ import model.item.Item
 import model.personnage.Personnage
 import java.nio.file.Files
 import java.nio.file.Paths
+import Potion
 
 
 class GenerateurMonstres (val cheminFichier : String) {

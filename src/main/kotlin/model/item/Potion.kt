@@ -10,10 +10,11 @@ import model.personnage.Personnage
  * @param soin La quantité de points de vie que la potion peut restaurer.
  */
 class Potion(
+    id : Int? = null ,
     nom: String,
     description: String,
     val soin: Int
-) : Item(nom, description) {
+) : Item(id,nom, description) {
 
     /**
      * Utilise la potion pour soigner un personnage en appelant la méthode boirePotion sur la cible.

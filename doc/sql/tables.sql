@@ -44,7 +44,7 @@ CREATE TABLE Arme
 
 CREATE TABLE Armure
 (
-    id          INT,
+    id          INT AUTO_INCREMENT,
     nom         VARCHAR(255) NOT NULL,
     description VARCHAR(255),
     id_type     INT          NOT NULL,

@@ -4,29 +4,52 @@ import model.jeu.Sort
 import model.jeu.TirageDes
 import model.item.*
 import model.personnage.Personnage
-//import dao.QualiteDAO
 import generateur.GenerateurQualites
 import generateur.GenerateurTypeArme
+import jdbc.BDD
+import model.jeu.dao.*
 import model.jeu.generateur.GenerateurArmure
 import model.jeu.generateur.GenerateurBombe
 import model.jeu.generateur.GenerateurPotion
 import model.jeu.generateur.GenerateurTypeArmure
 
+val coBDD = BDD()
+//instanciation d'un objet QualiteDAO
+val qualiteDAO = QualiteDAO(coBDD)
+val typeArmureDAO = TypeArmureDAO(coBDD)
+val typeArmeDAO = TypeArmeDAO(coBDD)
+val armeDAO = ArmeDAO(coBDD)
+val potionDAO = PotionDAO(coBDD)
+val bombeDao = BombeDAO(coBDD)
+
 //DEMO MISSION 1
 val generateurQualites = GenerateurQualites("assets/qualites.csv")
-val qualites = generateurQualites.generer()
+val qualitesFromCSV = generateurQualites.generer()
+val qualitesSaved=qualiteDAO.saveAll(qualitesFromCSV.values)
+val qualites = qualiteDAO.findAll()
 
-val generateurPotion = GenerateurPotion("asset/potion.csv")
-val potions = generateurPotion.generer()
+val generateurPotion = GenerateurPotion("assets/potion.csv")
+val potionsFromCSV = generateurPotion.generer()
+val potionSaved = potionDAO.saveAll(potionsFromCSV.values)
+val potion = potionDAO.findAll()
+
 
 val generateurBombe = GenerateurBombe("assets/bombe.csv")
-val bombes = generateurBombe.generer()
+val bombesFromCSV = generateurBombe.generer()
+val bombeSaved = bombeDao.saveAll(bombesFromCSV.values)
+val bombe = bombeDao.findAll()
+
 
 val generateurTypeArme = GenerateurTypeArme("assets/typeArme.csv")
-val typeArme = generateurTypeArme.generer()
+val typeArmeFromCSV = generateurTypeArme.generer()
+val typeArmeSaved=typeArmeDAO.saveAll(typeArmeFromCSV.values)
+val typeArme = typeArmeDAO.findAll()
 
 val generateurArme = GenerateurArme("assets/arme.csv")
-val arme = generateurArme.generer()
+val armeFromCSV = generateurArme.generer()
+//val armeSaved=armeRepository.saveAll(armeFromCSV.values)
+val arme = armeDAO.findAll()
+
 
 val generateurTypeArmure = GenerateurTypeArmure("assets/typeArmure.csv")
 val typeArmure = generateurTypeArmure.generer()
@@ -47,6 +70,7 @@ val monstres = generateurMonstre.generer()
 //
 //Sauvegarde des Qualites dans la BDD
 //val qualites=qualiteRepository.saveAll(qualitesFromCSV.values)
+
 
 
 // instanciation des Sorts (pour le(s) mage(s))
@@ -150,10 +174,10 @@ fun main() {
     val dague = Arme("Dague", "Une dague extrêmement pointue", typeDague, qualites["epic"]!!)
     val marteau = Arme("Marteau", "un marteau legendaire pourfendeur de troll", typeMarteau, qualites["legendaire"]!!)
     // instanciation des potions et bombes des monstres
-    val potionDeSoin1 = Potion("Potion de Soin", "Restaure les points de vie", 20)
-    val potionDeSoin2 = Potion("Potion de Soin", "Restaure les points de vie", 20)
-    val potionDeSoin3 = Potion("Potion de Soin", "Restaure les points de vie", 20)
-    val potionDeSoin4 = Potion("Grande Potion de Soin", "Restaure les points de vie", 30)
+//    val potionDeSoin1 = Potion("Potion de Soin", "Restaure les points de vie", 20)
+//    val potionDeSoin2 = Potion("Potion de Soin", "Restaure les points de vie", 20)
+//    val potionDeSoin3 = Potion("Potion de Soin", "Restaure les points de vie", 20)
+//    val potionDeSoin4 = Potion("Grande Potion de Soin", "Restaure les points de vie", 30)
 
     // Instanciation des Monstres
     val kobold =
@@ -167,7 +191,7 @@ fun main() {
         vitesse = 11,
         endurance = 6,
         armeEquipee = epee,
-        inventaire = mutableListOf(potionDeSoin3, epee)
+        inventaire = mutableListOf(potion["potiondeSoins"], epee)
     )
     val troll = Personnage(
         "Nassim le troll",

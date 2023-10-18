@@ -2,6 +2,7 @@ package dao
 
 import jdbc.BDD
 import model.item.Qualite
+import model.jeu.dao.QualiteDAO
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Assertions.*
